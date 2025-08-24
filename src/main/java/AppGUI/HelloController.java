@@ -22,6 +22,6 @@ public class HelloController {
 
     @FXML
     protected void  letthetestwork() {
-        welcomeText.setText("Let the test worksssss!");
+        welcomeText.setText("Let the test works!");
     }
 }
