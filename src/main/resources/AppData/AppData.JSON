@@ -1,0 +1,25 @@
+{
+  "comment": "maybe add info if a product gets stamp or not",
+  "products": [
+    {
+      "id": "macchiato",
+      "name": "Macchiato",
+      "price": 2.22,
+      "sizes": {
+        "small": 1.99,
+        "medium": 2.49,
+        "large": 2.99
+      }
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "price": 2.21,
+      "sizes": {
+        "small": 1.50,
+        "medium": 1.90,
+        "large": 2.30
+      }
+    }
+  ]
+}
