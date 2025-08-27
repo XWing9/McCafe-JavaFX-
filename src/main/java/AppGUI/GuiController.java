@@ -43,18 +43,4 @@ public class GuiController {
     //make better version
     //should take data given and take date from JSON to give back constructing UI based on that
     //make one function, takes button text searches in the JSON for its data and sends relevant data back
-    @FXML
-    protected void CaffeeButton() {
-        if (appManager.isChoosingSize == true){
-            welcomeText.setText(appManager.WelcomeButton());
-        }
-    }
-
-    @FXML
-    protected void MachiatoButton() {
-        welcomeText.setText("Let the test works!");
-    }
-
-    public void SizeOrdered(ActionEvent actionEvent) {
-    }
 }

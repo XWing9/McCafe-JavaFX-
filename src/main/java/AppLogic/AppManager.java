@@ -25,10 +25,6 @@ public class AppManager {
         JSONReader();
     }
 
-    public String WelcomeButton(){
-        return "Welcome to the App!";
-    }
-
     public void SwitchScene(String desiredScene,String currentScene) {
         System.out.println("Switching scene to " + desiredScene);
 
@@ -71,7 +67,7 @@ public class AppManager {
 
     public static void JSONReader(){
         //works, but remove function under this one if possible
-        cachedMenuJson = JSONReader.readMenuJson();
+        cachedMenuJson = JSONReader.readJSON();
         System.out.println("Loaded menu JSON (" + (cachedMenuJson != null ? cachedMenuJson.length() : 0) + " chars)");
     }
 

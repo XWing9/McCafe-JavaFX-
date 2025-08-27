@@ -4,11 +4,15 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 public final class JSONReader {
+    
+    public static void getProduktNames(){
+    }
 
-    private JSONReader() { /* utility class */ }
+    public static void getProduktSizes(){
+    }
 
     // Reads the default menu JSON from resources: src/main/resources/AppData/AppData.JSON
-    public static String readMenuJson() {
+    public static String readJSON() {
         return readResourceAsString("/AppData/AppData.JSON");
     }
 
