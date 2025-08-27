@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 
 public class AppManager {
 
@@ -62,17 +63,11 @@ public class AppManager {
         });
     }
 
-
-    private static String cachedMenuJson;
-
+    //temp JSON read test function
     public static void JSONReader(){
-        //works, but remove function under this one if possible
-        cachedMenuJson = JSONReader.readJSON();
-        System.out.println("Loaded menu JSON (" + (cachedMenuJson != null ? cachedMenuJson.length() : 0) + " chars)");
-    }
-
-    public static String getMenuJson() {
-        return cachedMenuJson;
+        String cachedMenuJson;
+        cachedMenuJson = Arrays.toString(JSONReader.JSONReader("names"));
+        System.out.println("Read JSON: " + cachedMenuJson);
     }
 
     private Stage primaryStage;

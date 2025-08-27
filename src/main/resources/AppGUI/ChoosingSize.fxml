@@ -13,10 +13,10 @@
     </padding>
 
     <TilePane hgap="10" vgap="10" prefColumns="2">
-        <Button text="Small"   onAction="#SizeOrdered"/>
-        <Button text="Medium" onAction="#SizeOrdered"/>
-        <Button text="Large"      onAction="#SizeOrdered"/>
-        <Button text="American"    onAction="#SizeOrdered"/>
+        <Button text="Small"   onAction="#sizeOrdered"/>
+        <Button text="Medium" onAction="#sizeOrdered"/>
+        <Button text="Large"      onAction="#sizeOrdered"/>
+        <Button text="American"    onAction="#sizeOrdered"/>
         <Button text="Back"      onAction="#StartingOrder"/>
     </TilePane>
 

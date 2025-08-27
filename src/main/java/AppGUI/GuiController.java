@@ -40,6 +40,10 @@ public class GuiController {
         appManager.SwitchScene(appManager.desiredScene,appManager.currentSzene);
     }
 
+    public void sizeOrdered(){
+
+    }
+
     //make better version
     //should take data given and take date from JSON to give back constructing UI based on that
     //make one function, takes button text searches in the JSON for its data and sends relevant data back
