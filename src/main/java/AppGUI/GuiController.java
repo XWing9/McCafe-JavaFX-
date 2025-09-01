@@ -4,18 +4,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import AppLogic.AppManager;
+import javafx.scene.layout.TilePane;
 
 import java.util.Objects;
 
 public class GuiController {
     @FXML
     private Label welcomeText;
+    @FXML
+    private TilePane container;
 
     private AppManager appManager;
 
     @FXML
     protected void initialize() {
         appManager  = McCafeApplication.getAppManager();
+        // dynamically populate the TilePane with buttons from JSON
+        new GenerateGUI().GenerateStartingGUI(container, this);
     }
 
     @FXML

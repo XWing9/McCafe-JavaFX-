@@ -12,7 +12,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <TilePane hgap="10" vgap="10" prefColumns="2">
+    <TilePane hgap="10" vgap="10" prefColumns="2" id="container">
         <Button text="Small"   onAction="#sizeOrdered"/>
         <Button text="Medium" onAction="#sizeOrdered"/>
         <Button text="Large"      onAction="#sizeOrdered"/>

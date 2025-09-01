@@ -14,16 +14,7 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <TilePane hgap="10" vgap="10" prefColumns="3">
-        <Button text="Caffee"   onAction="#StartingOrder"/>
-        <Button text="Machiato" onAction="#StartingOrder"/>
-        <Button text="Tee"      onAction="#StartingOrder"/>
-        <Button text="Latte"    onAction="#StartingOrder"/>
-        <Button text="Button 5" onAction="#StartingOrder"/>
-        <Button text="Button 6" onAction="#StartingOrder"/>
-        <Button text="Button 7" onAction="#StartingOrder"/>
-        <Button text="Button 8" onAction="#StartingOrder"/>
-        <Button text="Button 9" onAction="#StartingOrder"/>
+    <TilePane hgap="10" vgap="10" prefColumns="3" fx:id="container">
     </TilePane>
 
 </VBox>

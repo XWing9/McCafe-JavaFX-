@@ -16,6 +16,14 @@
         "medium": 1.90,
         "large": 2.30
       }
+    },
+    {
+      "name": "Tee",
+      "sizes": {
+        "small": 1.50,
+        "medium": 1.90,
+        "large": 2.30
+      }
     }
   ]
 }
