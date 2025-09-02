@@ -20,7 +20,18 @@ public class GuiController {
     protected void initialize() {
         appManager  = McCafeApplication.getAppManager();
         // dynamically populate the TilePane with buttons from JSON
-        new GenerateGUI().GenerateStartingGUI(container, this);
+        if(appManager.isChoosingSize){
+            new GenerateGUI().GenerateSizeChoosingGUI(container, this);
+        } else {
+            new GenerateGUI().GenerateStartingGUI(container, this);
+        }
+    }
+
+    public void switchGui(){
+        //arsch methode raus damit
+        if (appManager.isChoosingSize){
+            new GenerateGUI().GenerateSizeChoosingGUI(container, this);
+        }
     }
 
     @FXML

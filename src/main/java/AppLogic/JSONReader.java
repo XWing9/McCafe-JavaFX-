@@ -42,7 +42,7 @@ public final class JSONReader {
                 }
 
             } else if (wantedData.equals("sizes")) {
-                // Extract all size keys: "small", "medium", "large"
+                // change to extract only sizes of given name
                 int idx = 0;
                 while ((idx = json.indexOf("\"sizes\"", idx)) != -1) {
                     int blockStart = json.indexOf("{", idx);

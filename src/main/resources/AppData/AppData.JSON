@@ -2,27 +2,161 @@
   "comment": "maybe add info if a product gets stamp or not",
   "products": [
     {
-      "name": "Macchiato",
+      "name": "Espresso",
+      "sizes": {
+        "small": 1.69,
+        "medium": 2.19
+      }
+    },
+    {
+      "name": "Espresso Macchiato",
+      "sizes": {
+        "small": 1.79
+      }
+    },
+    {
+      "name": "Cafe",
+      "sizes": {
+        "small": 1.79,
+        "medium": 2.19,
+        "large": 2.49
+      }
+    },
+    {
+      "name": "Flat White Espresso",
+      "sizes": {
+        "small": 1.89,
+        "medium": 2.29,
+        "large": 2.59
+      }
+    },
+    {
+      "name": "Cappuccino",
       "sizes": {
         "small": 1.99,
-        "medium": 2.49,
+        "medium": 2.39,
+        "large": 2.69
+      }
+    },
+    {
+      "name": "Caffe Latte",
+      "sizes": {
+        "small": 1.99,
+        "medium": 2.39,
+        "large": 2.69
+      }
+    },
+    {
+      "name": "Latte Macchiato",
+      "sizes": {
+        "small": 2.39,
+        "medium": 2.69
+      }
+    },
+    {
+      "name": "Mocha Espresso",
+      "sizes": {
+        "small": 2.29,
+        "medium": 2.69,
         "large": 2.99
       }
     },
     {
-      "name": "Coffee",
+      "name": "Vienna",
       "sizes": {
-        "small": 1.50,
-        "medium": 1.90,
-        "large": 2.30
+        "small": 2.29,
+        "medium": 2.69,
+        "large": 2.99
+      }
+    },
+
+    {
+      "name": "White Choc Lemon Cookie",
+      "sizes": {
+        "small": 1.59
       }
     },
     {
-      "name": "Tee",
+      "name": "Blueberry Cheesecake",
       "sizes": {
-        "small": 1.50,
-        "medium": 1.90,
-        "large": 2.30
+        "small": 1.00
+      }
+    },
+
+    {
+      "name": "Frappé Schoko",
+      "sizes": {
+        "small": 2.99,
+        "large": 3.29
+      }
+    },
+    {
+      "name": "Frappé Chai",
+      "sizes": {
+        "small": 2.99,
+        "large": 3.29
+      }
+    },
+    {
+      "name": "Frappé Mocha",
+      "sizes": {
+        "small": 2.99,
+        "large": 3.29
+      }
+    },
+    {
+      "name": "Frappé Caramel",
+      "sizes": {
+        "small": 2.99,
+        "large": 3.29
+      }
+    },
+
+    {
+      "name": "Iced Schokolade",
+      "sizes": {
+        "small": 2.59,
+        "large": 2.99
+      }
+    },
+    {
+      "name": "Iced Coffee",
+      "sizes": {
+        "small": 2.59,
+        "large": 2.99
+      }
+    },
+
+    {
+      "name": "Italian Bagel",
+      "sizes": {
+        "small": 2.69
+      }
+    },
+    {
+      "name": "Chicken Bagel",
+      "sizes": {
+        "small": 2.69
+      }
+    },
+
+    {
+      "name": "Stilles Mineralwasser",
+      "sizes": {
+        "small": 1.99
+      }
+    },
+    {
+      "name": "Bionade",
+      "sizes": {
+        "small": 2.29
+      }
+    },
+
+    {
+      "name": "Zitronenkuchen",
+      "sizes": {
+        "small": 1.00
       }
     }
   ]

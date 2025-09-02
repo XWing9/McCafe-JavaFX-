@@ -17,7 +17,15 @@ public class GenerateGUI{
             button.setOnAction(controller::StartingOrder);
             container.getChildren().add(button);
         }
+    }
 
+    public void GenerateSizeChoosingGUI(TilePane container, GuiController controller){
+        String[] sizes = JSONReader.getProduktSizes("sizes");
 
+        for (String buttonText : sizes) {
+            Button button = new Button(buttonText);
+            button.setOnAction(controller::StartingOrder);
+            container.getChildren().add(button);
+        }
     }
 }
