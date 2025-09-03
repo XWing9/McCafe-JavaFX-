@@ -10,7 +10,7 @@ public class GenerateGUI{
 
     public void GenerateStartingGUI(TilePane container, GuiController controller) {
 
-        String[] buttonsText = JSONReader.JSONReader("names");
+        String[] buttonsText = JSONReader.JSONReader("names",null);
 
         for (String buttonText : buttonsText) {
             Button button = new Button(buttonText);
@@ -19,9 +19,9 @@ public class GenerateGUI{
         }
     }
 
-    public void GenerateSizeChoosingGUI(TilePane container, GuiController controller){
-        String[] sizes = JSONReader.getProduktSizes("sizes");
-
+    public void GenerateSizeChoosingGUI(TilePane container, GuiController controller, String produktName){
+        String[] sizes = JSONReader.getProduktSizes(produktName);
+        //doesnt gen buttons maybe need to konvert it?
         for (String buttonText : sizes) {
             Button button = new Button(buttonText);
             button.setOnAction(controller::StartingOrder);

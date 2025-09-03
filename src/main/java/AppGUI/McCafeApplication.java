@@ -27,7 +27,7 @@ public class McCafeApplication extends Application {
         Parent initialRoot = FXMLLoader.load(
                 McCafeApplication.class.getResource("Startingpage.fxml")
         );
-        Scene scene = new Scene(initialRoot, 320, 240);
+        Scene scene = new Scene(initialRoot, 600, 650);
 
         //adding global stylesheet
         String globalStylesheet = McCafeApplication.class.getResource("styles.css").toExternalForm();

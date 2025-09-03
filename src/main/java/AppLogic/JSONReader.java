@@ -11,15 +11,15 @@ public final class JSONReader {
     static String resourcePath = "/AppData/AppData.JSON";
 
     public static String[] getProduktNames(){
-        return JSONReader("names");
+        return JSONReader("names",null);
     }
 
-    public static String[] getProduktSizes(String wantedProduktData){
-        return JSONReader("sizes");
+    public static String[] getProduktSizes(String wantedProduktName){
+        return JSONReader("sizes",wantedProduktName);
     }
 
     // change JSON reader to own
-    public static String[] JSONReader(String wantedData) {
+    public static String[] JSONReader(String wantedData,String wantedProduktName) {
         try (InputStream is = JSONReader.class.getResourceAsStream(resourcePath)) {
             if (is == null) {
                 throw new IllegalStateException("Resource not found: " + resourcePath);
@@ -42,25 +42,39 @@ public final class JSONReader {
                 }
 
             } else if (wantedData.equals("sizes")) {
-                // change to extract only sizes of given name
                 int idx = 0;
-                while ((idx = json.indexOf("\"sizes\"", idx)) != -1) {
-                    int blockStart = json.indexOf("{", idx);
-                    int blockEnd = json.indexOf("}", blockStart);
+                while ((idx = json.indexOf("\"name\"", idx)) != -1) {
+                    int start = json.indexOf("\"", idx + 6) + 1;
+                    int end = json.indexOf("\"", start);
+                    String name = json.substring(start, end);
 
-                    String block = json.substring(blockStart + 1, blockEnd);
+                    if (wantedProduktName.equals(name)) {
+                        System.out.println(wantedProduktName);
+                        System.out.println(name);
+                        int sizesIdx = json.indexOf("\"sizes\"", end);
+                        if (sizesIdx == -1) break;
 
-                    // Split by commas and get keys
-                    for (String pair : block.split(",")) {
-                        String key = pair.split(":")[0].trim();
-                        key = key.replace("\"", ""); // remove quotes
-                        result.add(key);
+                        int blockStart = json.indexOf("{", sizesIdx);
+                        if (blockStart == -1) break;
+                        int blockEnd = json.indexOf("}", blockStart);
+                        if (blockEnd == -1) break;
+
+                        String block = json.substring(blockStart + 1, blockEnd);
+
+                        // Split by commas and get keys (left side of :)
+                        for (String pair : block.split(",")) {
+                            String[] parts = pair.split(":", 2);
+                            if (parts.length == 0) continue;
+                            String key = parts[0].trim().replace("\"", "");
+                            if (!key.isEmpty()) {
+                                result.add(key);
+                            }
+                        }
+                        break; // done after matched product
                     }
-
-                    idx = blockEnd;
+                    idx = end;
                 }
             }
-
             return result.toArray(new String[0]);
 
         } catch (Exception e) {

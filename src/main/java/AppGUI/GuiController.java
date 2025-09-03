@@ -19,18 +19,15 @@ public class GuiController {
     @FXML
     protected void initialize() {
         appManager  = McCafeApplication.getAppManager();
-        // dynamically populate the TilePane with buttons from JSON
-        if(appManager.isChoosingSize){
-            new GenerateGUI().GenerateSizeChoosingGUI(container, this);
-        } else {
-            new GenerateGUI().GenerateStartingGUI(container, this);
-        }
+        switchGui("");
     }
 
-    public void switchGui(){
+    public void switchGui(String produktName){
         //arsch methode raus damit
         if (appManager.isChoosingSize){
-            new GenerateGUI().GenerateSizeChoosingGUI(container, this);
+            new GenerateGUI().GenerateSizeChoosingGUI(container, this,produktName);
+        } else {
+            new GenerateGUI().GenerateStartingGUI(container, this);
         }
     }
 
@@ -44,11 +41,13 @@ public class GuiController {
             appManager.isDoingOrder = false;
             appManager.currentSzene = "StartingPage";
             appManager.desiredScene = "StartingPage";
+            switchGui(buttonName);
         } else {
             appManager.isChoosingSize = true;
             appManager.isDoingOrder = true;
             appManager.currentSzene = "ChoosingSize";
             appManager.desiredScene = "ChoosingSize";
+            switchGui(buttonName);
         }
 
         //call szene switcher function to laod different scene

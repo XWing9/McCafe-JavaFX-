@@ -66,7 +66,7 @@ public class AppManager {
     //temp JSON read test function
     public static void JSONReader(){
         String cachedMenuJson;
-        cachedMenuJson = Arrays.toString(JSONReader.JSONReader("names"));
+        cachedMenuJson = Arrays.toString(JSONReader.JSONReader("names",null));
         System.out.println("Read JSON: " + cachedMenuJson);
     }
 
