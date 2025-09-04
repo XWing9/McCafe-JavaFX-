@@ -22,12 +22,7 @@ public class AppManager {
     public int minSzeneHeight = 0;
     public int minSzeneWidth = 0;
 
-    public AppManager() {
-        JSONReader();
-    }
-
     public void SwitchScene(String desiredScene,String currentScene) {
-        System.out.println("Switching scene to " + desiredScene);
 
         if (primaryStage == null) {
             System.err.println("Primary stage not set.");
@@ -61,13 +56,7 @@ public class AppManager {
                 e.printStackTrace();
             }
         });
-    }
-
-    //temp JSON read test function
-    public static void JSONReader(){
-        String cachedMenuJson;
-        cachedMenuJson = Arrays.toString(JSONReader.JSONReader("names",null));
-        System.out.println("Read JSON: " + cachedMenuJson);
+        //System.out.println("switched scene to " + desiredScene);
     }
 
     private Stage primaryStage;
@@ -75,10 +64,3 @@ public class AppManager {
         this.primaryStage = stage;
     }
 }
-
-//maybe make into a singelton? dont see reason for now
-
-//holds all data in variables
-//only call functions when a button or so is pressed
-//function either redirects to another function
-//or function is here probably first

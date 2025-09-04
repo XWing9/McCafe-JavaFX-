@@ -20,6 +20,7 @@ public final class JSONReader {
 
     // change JSON reader to own
     public static String[] JSONReader(String wantedData,String wantedProduktName) {
+        System.out.println("Jspn reader entered");
         try (InputStream is = JSONReader.class.getResourceAsStream(resourcePath)) {
             if (is == null) {
                 throw new IllegalStateException("Resource not found: " + resourcePath);
@@ -41,27 +42,29 @@ public final class JSONReader {
                     idx = end;
                 }
 
-            } else if (wantedData.equals("sizes")) {
+            }  else if (wantedData.equals("sizes")) {
                 int idx = 0;
+                String target = wantedProduktName == null ? null : wantedProduktName.trim();
                 while ((idx = json.indexOf("\"name\"", idx)) != -1) {
                     int start = json.indexOf("\"", idx + 6) + 1;
                     int end = json.indexOf("\"", start);
+                    if (start <= 0 || end <= start) break;
+
                     String name = json.substring(start, end);
 
-                    if (wantedProduktName.equals(name)) {
-                        System.out.println(wantedProduktName);
-                        System.out.println(name);
+                    if (target != null && target.equals(name)) {
                         int sizesIdx = json.indexOf("\"sizes\"", end);
                         if (sizesIdx == -1) break;
 
                         int blockStart = json.indexOf("{", sizesIdx);
                         if (blockStart == -1) break;
+
                         int blockEnd = json.indexOf("}", blockStart);
-                        if (blockEnd == -1) break;
+                        if (blockEnd == -1 || blockEnd <= blockStart) break;
 
                         String block = json.substring(blockStart + 1, blockEnd);
 
-                        // Split by commas and get keys (left side of :)
+                        // Split the sizes object into pairs and collect keys (left side of :)
                         for (String pair : block.split(",")) {
                             String[] parts = pair.split(":", 2);
                             if (parts.length == 0) continue;
@@ -71,8 +74,10 @@ public final class JSONReader {
                             }
                         }
                         break; // done after matched product
+                    } else {
+                        // IMPORTANT: advance the scan when the name doesn't match to avoid infinite loop
+                        idx = end;
                     }
-                    idx = end;
                 }
             }
             return result.toArray(new String[0]);

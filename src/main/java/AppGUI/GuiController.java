@@ -26,13 +26,14 @@ public class GuiController {
         //arsch methode raus damit
         if (appManager.isChoosingSize){
             new GenerateGUI().GenerateSizeChoosingGUI(container, this,produktName);
-        } else {
+        } else{
             new GenerateGUI().GenerateStartingGUI(container, this);
         }
     }
 
     @FXML
     protected void StartingOrder(javafx.event.ActionEvent actionEvent) {
+        //switch the GUI to early
         Button btn = (Button) actionEvent.getSource();
         String buttonName = btn.getText();
 
@@ -41,17 +42,17 @@ public class GuiController {
             appManager.isDoingOrder = false;
             appManager.currentSzene = "StartingPage";
             appManager.desiredScene = "StartingPage";
-            switchGui(buttonName);
         } else {
             appManager.isChoosingSize = true;
             appManager.isDoingOrder = true;
             appManager.currentSzene = "ChoosingSize";
             appManager.desiredScene = "ChoosingSize";
-            switchGui(buttonName);
         }
 
         //call szene switcher function to laod different scene
         appManager.SwitchScene(appManager.desiredScene,appManager.currentSzene);
+        System.out.println("szene switched");
+        switchGui(buttonName);
     }
 
     public void sizeOrdered(){
