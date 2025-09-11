@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import AppLogic.AppManager;
+import AppLogic.RechnungsListe;
 import javafx.scene.layout.TilePane;
 
 import java.util.Objects;
@@ -11,10 +12,12 @@ import java.util.Objects;
 public class GuiController {
     @FXML
     private Label welcomeText;
+
     @FXML
     private TilePane container;
 
     private AppManager appManager;
+    private RechnungsListe rechnungsManager;
 
     @FXML
     protected void initialize() {
@@ -37,6 +40,7 @@ public class GuiController {
         Button btn = (Button) actionEvent.getSource();
         String buttonName = btn.getText();
 
+        //build a call to addprodukttoList funktion
         if (Objects.equals(buttonName, "Back")) {
             appManager.isChoosingSize = false;
             appManager.isDoingOrder = false;
@@ -55,11 +59,9 @@ public class GuiController {
         switchGui(buttonName);
     }
 
-    public void sizeOrdered(){
-
+    public void addProdukttoList(String produktName, int amount){
+        //call list class and GUI klass to add stuff to side bar
+        rechnungsManager.addProduktToRechnung(produktName,amount);
+        System.out.println("produkt added:" + produktName + amount);
     }
-
-    //make better version
-    //should take data given and take date from JSON to give back constructing UI based on that
-    //make one function, takes button text searches in the JSON for its data and sends relevant data back
 }

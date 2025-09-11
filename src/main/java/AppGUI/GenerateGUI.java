@@ -32,4 +32,8 @@ public class GenerateGUI{
             container.getChildren().add(button);
         }
     }
+
+    public void GenerateAmountGUI(){
+
+    }
 }
