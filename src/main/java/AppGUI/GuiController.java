@@ -25,15 +25,6 @@ public class GuiController {
         switchGui("");
     }
 
-    public void switchGui(String produktName){
-        //arsch methode raus damit
-        if (appManager.isChoosingSize){
-            new GenerateGUI().GenerateSizeChoosingGUI(container, this,produktName);
-        } else{
-            new GenerateGUI().GenerateStartingGUI(container, this);
-        }
-    }
-
     @FXML
     protected void StartingOrder(javafx.event.ActionEvent actionEvent) {
         //switch the GUI to early
@@ -57,6 +48,15 @@ public class GuiController {
         appManager.SwitchScene(appManager.desiredScene,appManager.currentSzene);
         System.out.println("szene switched");
         switchGui(buttonName);
+    }
+
+    public void switchGui(String produktName){
+        //arsch methode raus damit
+        if (appManager.isChoosingSize){
+            new GenerateGUI().GenerateSizeChoosingGUI(container, this,produktName);
+        } else{
+            new GenerateGUI().GenerateStartingGUI(container, this);
+        }
     }
 
     public void addProdukttoList(String produktName, int amount){

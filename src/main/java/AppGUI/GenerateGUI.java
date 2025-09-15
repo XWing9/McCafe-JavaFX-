@@ -20,11 +20,12 @@ public class GenerateGUI{
     }
 
     public void GenerateSizeChoosingGUI(TilePane container, GuiController controller, String produktName){
-        String[] sizes = JSONReader.getProduktSizes(produktName);
+        String[] sizes = JSONReader.JSONReader("sizes",produktName);
         //somehow call the JSON reader 2 time so array is empty so no buttons
         System.out.println(Arrays.toString(sizes));
 
         //doesnt gen buttons maybe need to konvert it?
+        //change targeting container to fix bug
         for (String buttonText : sizes){
             System.out.println("buttonsgenereated");
             Button button = new Button(buttonText);

@@ -14,13 +14,10 @@ public final class JSONReader {
         return JSONReader("names",null);
     }
 
-    public static String[] getProduktSizes(String wantedProduktName){
-        return JSONReader("sizes",wantedProduktName);
-    }
-
     // change JSON reader to own
     public static String[] JSONReader(String wantedData,String wantedProduktName) {
-        System.out.println("Jspn reader entered");
+        System.out.println("Json reader entered");
+        new Exception("Call trace").printStackTrace(System.out);
         try (InputStream is = JSONReader.class.getResourceAsStream(resourcePath)) {
             if (is == null) {
                 throw new IllegalStateException("Resource not found: " + resourcePath);
