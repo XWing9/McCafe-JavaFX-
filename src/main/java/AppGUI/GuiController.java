@@ -15,6 +15,8 @@ public class GuiController {
 
     @FXML
     private TilePane container;
+    @FXML
+    private TilePane choosingSize;
 
     private AppManager appManager;
     private RechnungsListe rechnungsManager;
@@ -53,7 +55,7 @@ public class GuiController {
     public void switchGui(String produktName){
         //arsch methode raus damit
         if (appManager.isChoosingSize){
-            new GenerateGUI().GenerateSizeChoosingGUI(container, this,produktName);
+            new GenerateGUI().GenerateSizeChoosingGUI(choosingSize, this,produktName);
         } else{
             new GenerateGUI().GenerateStartingGUI(container, this);
         }
