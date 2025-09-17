@@ -25,10 +25,12 @@ public class GenerateGUI{
         System.out.println(Arrays.toString(sizes));
 
         //doesnt gen buttons maybe need to konvert it?
-        //change targeting container to fix bug
+        //choosing size tilepane is null creating error fix parsing giving right tile panel back
+        //somewhere in switch szene?
         for (String buttonText : sizes){
             System.out.println("buttonsgenereated");
             Button button = new Button(buttonText);
+            //button.setOnAction(e -> controller.addProdukttoList(produktName,2));
             button.setOnAction(controller::StartingOrder);
             choosingsize.getChildren().add(button);
         }
