@@ -35,7 +35,9 @@ public class McCafeApplication extends Application {
 
         stage.setTitle("McCafe");
         stage.setResizable(true);
-        stage.setScene(scene);
-        stage.show();
+
+        GuiController controller = new GuiController();
+
+        appManager.SwitchScene("StartingPage", "", controller, "");
     }
 }

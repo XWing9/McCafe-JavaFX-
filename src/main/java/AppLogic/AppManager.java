@@ -21,7 +21,7 @@ public class AppManager {
     public int minSzeneHeight = 0;
     public int minSzeneWidth = 0;
 
-    public void SwitchScene(String desiredScene,String currentScene) {
+    public void SwitchScene(String desiredScene, String currentScene, AppGUI.GuiController controller, String produktName) {
 
         if (primaryStage == null) {
             System.err.println("Primary stage not set.");
@@ -38,24 +38,31 @@ public class AppManager {
                 if (fxmlUrl == null) {
                     throw new IOException("FXML not found: " + resourcePath);
                 }
-                Parent newRoot = FXMLLoader.load(fxmlUrl);
+
+                FXMLLoader loader = new FXMLLoader(fxmlUrl);
+                // Keep fx:controller in FXML, but force using the existing controller instance
+                loader.setControllerFactory(type -> controller);
+
+                Parent newRoot = loader.load(); // @FXML fields injected into 'controller' here
 
                 Scene scene = primaryStage.getScene();
                 if (scene == null) {
-                    // Fallback: first-time navigation creates the Scene
-                    scene = new Scene(newRoot, 900, 600);
+                    Scene newScene = new Scene(newRoot, 900, 600);
                     String css = getClass().getResource("/AppGUI/styles.css").toExternalForm();
-                    scene.getStylesheets().add(css);
-                    primaryStage.setScene(scene);
+                    newScene.getStylesheets().add(css);
+                    primaryStage.setScene(newScene);
                 } else {
-                    scene.setRoot(newRoot); // keep same Scene, CSS persists
+                    scene.setRoot(newRoot);
                 }
                 primaryStage.show();
+
+                // Now it's safe: choosingSize/container are injected
+                controller.switchGui(produktName);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        //System.out.println("switched scene to " + desiredScene);
     }
 
     private Stage primaryStage;

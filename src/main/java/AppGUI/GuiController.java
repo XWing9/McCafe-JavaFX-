@@ -24,16 +24,13 @@ public class GuiController {
     @FXML
     protected void initialize() {
         appManager  = McCafeApplication.getAppManager();
-        switchGui("");
     }
 
     @FXML
     protected void StartingOrder(javafx.event.ActionEvent actionEvent) {
-        //switch the GUI to early
         Button btn = (Button) actionEvent.getSource();
         String buttonName = btn.getText();
 
-        //build a call to addprodukttoList funktion
         if (Objects.equals(buttonName, "Back")) {
             appManager.isChoosingSize = false;
             appManager.isDoingOrder = false;
@@ -46,24 +43,20 @@ public class GuiController {
             appManager.desiredScene = "ChoosingSize";
         }
 
-        //call szene switcher function to laod different scene
-        appManager.SwitchScene(appManager.desiredScene,appManager.currentSzene);
-        System.out.println("szene switched");
-        switchGui(buttonName);
+        // Reuse this controller instance during the switch
+        appManager.SwitchScene(appManager.desiredScene, appManager.currentSzene, this, buttonName);
     }
 
     public void switchGui(String produktName){
-        //arsch methode raus damit
         if (appManager.isChoosingSize){
-            new GenerateGUI().GenerateSizeChoosingGUI(choosingSize, this,produktName);
+            new GenerateGUI().GenerateSizeChoosingGUI(choosingSize, this, produktName);
         } else{
             new GenerateGUI().GenerateStartingGUI(container, this);
         }
     }
 
     public void addProdukttoList(String produktName, int amount){
-        //call list class and GUI klass to add stuff to side bar
-        rechnungsManager.addProduktToRechnung(produktName,amount);
+        rechnungsManager.addProduktToRechnung(produktName, amount);
         System.out.println("produkt added:" + produktName + amount);
     }
 }

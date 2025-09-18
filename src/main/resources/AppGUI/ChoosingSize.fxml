@@ -13,7 +13,7 @@
     </padding>
 
     <TilePane hgap="10" vgap="10" prefColumns="2" fx:id="choosingSize">
-        <Button text="Back"      onAction="#StartingOrder"/>
+        <Button text="Back" onAction="#StartingOrder"/>
     </TilePane>
 
 </VBox>

@@ -17,7 +17,7 @@ public final class JSONReader {
     // change JSON reader to own
     public static String[] JSONReader(String wantedData,String wantedProduktName) {
         System.out.println("Json reader entered");
-        new Exception("Call trace").printStackTrace(System.out);
+        //new Exception("Call trace").printStackTrace(System.out);
         try (InputStream is = JSONReader.class.getResourceAsStream(resourcePath)) {
             if (is == null) {
                 throw new IllegalStateException("Resource not found: " + resourcePath);
