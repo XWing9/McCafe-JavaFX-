@@ -20,7 +20,6 @@ public class GenerateGUI{
 
     public void GenerateSizeChoosingGUI(TilePane choosingSize, GuiController controller, String produktName){
         String[] sizes = JSONReader.JSONReader("sizes",produktName);
-        //somehow call the JSON reader 2 time so array is empty so no buttons
 
         for (String buttonText : sizes){
             Button button = new Button(buttonText);//button.setOnAction(e -> controller.addProdukttoList(produktName,2));
