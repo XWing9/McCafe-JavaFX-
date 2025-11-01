@@ -21,6 +21,8 @@ public class AppManager {
     public int minSzeneHeight = 0;
     public int minSzeneWidth = 0;
 
+    private Stage primaryStage;
+
     public void SwitchScene(String desiredScene, String currentScene, AppGUI.GuiController controller, String produktName) {
 
         if (primaryStage == null) {
@@ -65,7 +67,6 @@ public class AppManager {
         });
     }
 
-    private Stage primaryStage;
     public void setPrimaryStage(Stage stage) {
         this.primaryStage = stage;
     }

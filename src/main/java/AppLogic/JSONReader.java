@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public final class JSONReader {
 
@@ -16,7 +15,7 @@ public final class JSONReader {
 
     // change JSON reader to own
     public static String[] JSONReader(String wantedData,String wantedProduktName) {
-        System.out.println("Json reader entered");
+        //System.out.println("Json reader entered");
         //new Exception("Call trace").printStackTrace(System.out);
         try (InputStream is = JSONReader.class.getResourceAsStream(resourcePath)) {
             if (is == null) {

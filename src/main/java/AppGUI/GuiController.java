@@ -1,5 +1,6 @@
 package AppGUI;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,18 +21,24 @@ public class GuiController {
 
     private AppManager appManager;
     private RechnungsListe rechnungsManager;
+    //maybe put in appmanager
+    public String currentButtonName;
 
     @FXML
     protected void initialize() {
+        //delcare that this ref goes to the instanze in application
+        //so it only uses one instantze in the whole projekt
         appManager  = McCafeApplication.getAppManager();
+        rechnungsManager = McCafeApplication.getRechnungsListe();
     }
 
+    //controls produkt buttons
     @FXML
     protected void StartingOrder(javafx.event.ActionEvent actionEvent) {
         Button btn = (Button) actionEvent.getSource();
-        String buttonName = btn.getText();
+        currentButtonName = btn.getText();
 
-        if (Objects.equals(buttonName, "Back")) {
+        if (Objects.equals(currentButtonName, "Back")) {
             appManager.isChoosingSize = false;
             appManager.isDoingOrder = false;
             appManager.currentSzene = "StartingPage";
@@ -44,7 +51,15 @@ public class GuiController {
         }
 
         // Reuse this controller instance during the switch
-        appManager.SwitchScene(appManager.desiredScene, appManager.currentSzene, this, buttonName);
+        appManager.SwitchScene(appManager.desiredScene, appManager.currentSzene, this, currentButtonName);
+    }
+
+    //controls choosing size buttons
+    public void addProdukttoList(ActionEvent actionEvent) {
+        //add real amount
+        //add text current button clicked for size
+        int amount = 1;
+        rechnungsManager.addProduktToRechnung(currentButtonName,amount);
     }
 
     public void switchGui(String produktName){
@@ -53,10 +68,5 @@ public class GuiController {
         } else{
             new GenerateGUI().GenerateStartingGUI(container, this);
         }
-    }
-
-    public void addProdukttoList(String produktName, int amount){
-        rechnungsManager.addProduktToRechnung(produktName, amount);
-        System.out.println("produkt added:" + produktName + amount);
     }
 }

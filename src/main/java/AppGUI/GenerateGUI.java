@@ -22,12 +22,10 @@ public class GenerateGUI{
         String[] sizes = JSONReader.JSONReader("sizes",produktName);
 
         for (String buttonText : sizes){
-            Button button = new Button(buttonText);//button.setOnAction(e -> controller.addProdukttoList(produktName,2));
-            button.setOnAction(controller::StartingOrder);
+            Button button = new Button(buttonText);
+            //scine back button is linked sep i dont need to have it as its startiong controller
+            button.setOnAction(controller::addProdukttoList);
             choosingSize.getChildren().add(button);
         }
-    }
-
-    public void GenerateAmountGUI(){
     }
 }
