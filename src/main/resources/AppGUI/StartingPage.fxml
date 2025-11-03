@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.TilePane?>
 
+<?import javafx.scene.control.Button?>
 <VBox alignment="CENTER" spacing="20.0"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="AppGUI.GuiController">
@@ -12,6 +13,10 @@
     </padding>
 
     <TilePane hgap="10" vgap="10" prefColumns="3" fx:id="container">
+    </TilePane>
+
+    <TilePane>
+        <Button text="test"></Button>
     </TilePane>
 
 </VBox>

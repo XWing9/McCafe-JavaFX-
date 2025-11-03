@@ -56,10 +56,12 @@ public class GuiController {
 
     //controls choosing size buttons
     public void addProdukttoList(ActionEvent actionEvent) {
+        Button btn = (Button) actionEvent.getSource();
+        String size = btn.getText();
         //add real amount
         //add text current button clicked for size
         int amount = 1;
-        rechnungsManager.addProduktToRechnung(currentButtonName,amount);
+        rechnungsManager.addProduktToRechnung(currentButtonName,amount,size);
     }
 
     public void switchGui(String produktName){
