@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.TilePane?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="AppGUI.GuiController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.layout.HBox?>
+<HBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="AppGUI.GuiController"
+        >
 
-    <TilePane hgap="10" vgap="10" prefColumns="3" fx:id="container">
+    <!-- Main container (80%) -->
+    <TilePane fx:id="container" hgap="10" vgap="10" HBox.hgrow="ALWAYS" />
+
+    <!-- Secondary container (20%) -->
+    <TilePane fx:id="orderBill" minWidth="200" alignment="CENTER">
+        <Button text="test"/>
     </TilePane>
-
-    <TilePane>
-        <Button text="test"></Button>
-    </TilePane>
-
-</VBox>
+</HBox>

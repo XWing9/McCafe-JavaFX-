@@ -1,10 +1,19 @@
+/*global background color*/
+.root {
+    -fx-background-color: #000000;
+}
+
+#container{
+    -fx-padding: 10px;
+    -fx-background-color: #999999;
+}
+
+#orderBill {
+    -fx-background-color: #999999;
+}
 .button {
-    -fx-background-color: #ff0000; -fx-text-fill: #000000;
+    -fx-effect: dropshadow(gaussian, #BD1616 , 8, 0, 4, 4);
+    -fx-background-color: #FF2626; -fx-text-fill: #000000;
     -fx-font-size: 20px;
     -fx-border-radius: 5px;
-}
-#test{
-    -fx-border-style: solid;
-    -fx-border-width: 3px;
-    -fx-border-color: #000000;
 }
