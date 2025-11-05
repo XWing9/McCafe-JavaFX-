@@ -5,8 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 <HBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="AppGUI.GuiController"
->
+      fx:controller="AppGUI.GuiController">
 
     <!-- Main container (80%) -->
     <TilePane fx:id="container" hgap="10" vgap="10" HBox.hgrow="ALWAYS" />

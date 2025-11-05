@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RechnungsListe {
 
-    List<String> produktsInBill = new ArrayList<>();
+    public List<String> produktsInBill = new ArrayList<>();
 
     public void addProduktToRechnung(String currentButtonName, int amount, String size){
         String[] data = new String[3];

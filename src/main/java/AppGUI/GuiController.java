@@ -17,6 +17,8 @@ public class GuiController {
     @FXML
     private TilePane container;
     @FXML
+    private TilePane orderBill;
+    @FXML
     private TilePane choosingSize;
 
     private AppManager appManager;
@@ -68,7 +70,7 @@ public class GuiController {
         if (appManager.isChoosingSize){
             new GenerateGUI().GenerateSizeChoosingGUI(choosingSize, this, produktName);
         } else{
-            new GenerateGUI().GenerateStartingGUI(container, this);
+            new GenerateGUI().GenerateStartingGUI(container, orderBill, this,rechnungsManager);
         }
     }
 }
