@@ -5,13 +5,18 @@ import AppLogic.RechnungsListe;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 
 public class GenerateGUI{
 
-    public void GenerateStartingGUI(TilePane container, TilePane orderBill, GuiController controller, RechnungsListe rechnungsManager) {
+    public void GenerateStartingGUI(TilePane container, VBox orderBill,
+                                    GuiController controller, RechnungsListe rechnungsManager,
+                                    Label billLabel, Label billPriceLabel) {
         container.getChildren().clear();
 
         String[] buttonsText = JSONReader.getProduktNames();
+        String labelId = billLabel.getId();
+        String billPriceId = billPriceLabel.getId();
 
         for (String buttonText : buttonsText) {
             Button button = new Button(buttonText);
@@ -25,9 +30,9 @@ public class GenerateGUI{
 
 
             String firstElement = item.toString().replace("[","").replace("]","");
-
-            Label textField = new Label(firstElement);
-            orderBill.getChildren().add(textField);
+            billLabel.setText(billLabel.getText() + "\n" + firstElement);
+            billLabel.setWrapText(true);
+            billPriceLabel.setText("Enbetrag: " + rechnungsManager.billPrice);
         }
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import AppLogic.AppManager;
 import AppLogic.RechnungsListe;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 
 import java.util.Objects;
 
@@ -15,11 +16,16 @@ public class GuiController {
     private Label welcomeText;
 
     @FXML
-    private TilePane container;
+    private TilePane startingContainer;
     @FXML
-    private TilePane orderBill;
+    private VBox orderBill;
     @FXML
     private TilePane choosingSize;
+
+    @FXML
+    private Label billLabel;
+    @FXML
+    private Label billPrice;
 
     private AppManager appManager;
     private RechnungsListe rechnungsManager;
@@ -70,7 +76,10 @@ public class GuiController {
         if (appManager.isChoosingSize){
             new GenerateGUI().GenerateSizeChoosingGUI(choosingSize, this, produktName);
         } else{
-            new GenerateGUI().GenerateStartingGUI(container, orderBill, this,rechnungsManager);
+            new GenerateGUI().GenerateStartingGUI(
+                    startingContainer, orderBill,
+                    this,rechnungsManager,billLabel,
+                    billPrice);
         }
     }
 }

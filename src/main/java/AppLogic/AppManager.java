@@ -49,7 +49,7 @@ public class AppManager {
 
                 Scene scene = primaryStage.getScene();
                 if (scene == null) {
-                    Scene newScene = new Scene(newRoot, 900, 600);
+                    Scene newScene = new Scene(newRoot, 1000, 620);
                     String css = getClass().getResource("/AppGUI/styles.css").toExternalForm();
                     newScene.getStylesheets().add(css);
                     primaryStage.setScene(newScene);

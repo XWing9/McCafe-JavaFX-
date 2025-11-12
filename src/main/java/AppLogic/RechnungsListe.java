@@ -7,6 +7,9 @@ import java.util.List;
 public class RechnungsListe {
 
     public List<String> produktsInBill = new ArrayList<>();
+    public int billPrice = 1;
+
+    String tempNum;
 
     public void addProduktToRechnung(String currentButtonName, int amount, String size){
         String[] data = new String[3];
@@ -14,10 +17,17 @@ public class RechnungsListe {
         data[1] = size;
         data[2] = String.valueOf(amount);
         produktsInBill.add(Arrays.toString(data));
+        calculateBill();
         System.out.println(produktsInBill);
     }
 
     public void calculateBill(){
+        for (int i = 0; i < produktsInBill.size(); i++){
+            tempNum = produktsInBill.get(i).split(",")[2];
+            tempNum = tempNum.replace("]","").trim();
+            billPrice = Integer.parseInt(tempNum);
+            billPrice += billPrice;
+        }
     }
 
     public void printBill(){

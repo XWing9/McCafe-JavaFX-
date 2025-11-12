@@ -3,13 +3,20 @@
     -fx-background-color: #000000;
 }
 
-#container{
+#startingContainer{
     -fx-padding: 10px;
     -fx-background-color: #999999;
 }
 
+#billHeader{
+    -fx-font-size: 35px;
+}
+
 #orderBill {
+    -fx-font-size: 20px;
+    -fx-padding: 10px;
     -fx-background-color: #999999;
+    -fx-spacing: 10px;
 }
 .button {
     -fx-effect: dropshadow(gaussian, #BD1616 , 8, 0, 4, 4);

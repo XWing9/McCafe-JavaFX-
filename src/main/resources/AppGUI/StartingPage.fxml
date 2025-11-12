@@ -2,16 +2,22 @@
 
 <?import javafx.scene.layout.TilePane?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 <HBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="AppGUI.GuiController">
 
     <!-- Main container (80%) -->
-    <TilePane fx:id="container" hgap="10" vgap="10" HBox.hgrow="ALWAYS" />
+    <TilePane fx:id="startingContainer" hgap="10" vgap="10" HBox.hgrow="ALWAYS" />
 
     <!-- Secondary container (20%) -->
-    <TilePane fx:id="orderBill" minWidth="200" alignment="CENTER">
-        <Button text="test"/>
-    </TilePane>
+    <VBox fx:id="orderBill" minWidth="300" alignment="TOP_CENTER">
+        <Label text="Rechung:" id="billHeader"/>
+        <Label fx:id="billLabel" id="billProdukts" maxWidth="180">
+        </Label>
+        <Label fx:id="billPrice" id="endBetragSum">
+            Endbetrag:
+        </Label>
+    </VBox>
 </HBox>
