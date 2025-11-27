@@ -32,7 +32,7 @@ public class GenerateGUI{
             String firstElement = item.toString().replace("[","").replace("]","");
             billLabel.setText(billLabel.getText() + "\n" + firstElement);
             billLabel.setWrapText(true);
-            billPriceLabel.setText("Enbetrag: " + rechnungsManager.billPrice);
+            billPriceLabel.setText("Enbetrag: " + rechnungsManager.calculateBill() + " €");
         }
     }
 
