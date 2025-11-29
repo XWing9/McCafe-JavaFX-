@@ -14,7 +14,7 @@ public class GenerateGUI{
                                     Label billLabel, Label billPriceLabel) {
         container.getChildren().clear();
 
-        String[] buttonsText = JSONReader.getProduktNames();
+        String[] buttonsText = JSONReader.NamesJSONReader();
         String labelId = billLabel.getId();
         String billPriceId = billPriceLabel.getId();
 
@@ -37,7 +37,7 @@ public class GenerateGUI{
     }
 
     public void GenerateSizeChoosingGUI(TilePane choosingSize, GuiController controller, String produktName){
-        String[] sizes = JSONReader.JSONReader("sizes",produktName);
+        String[] sizes = JSONReader.sizesJSONReader(produktName);
 
         for (String buttonText : sizes){
             Button button = new Button(buttonText);

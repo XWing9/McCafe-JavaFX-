@@ -1,11 +1,12 @@
 /*global background color*/
+/*#999999*/
 .root {
     -fx-background-color: #000000;
 }
 
 #startingContainer{
     -fx-padding: 10px;
-    -fx-background-color: #999999;
+    -fx-background-color: #000000;
 }
 
 #billHeader{
@@ -15,8 +16,11 @@
 #orderBill {
     -fx-font-size: 20px;
     -fx-padding: 10px;
-    -fx-background-color: #999999;
+    -fx-background-color: #000000;
     -fx-spacing: 10px;
+}
+#orderBill .label {
+    -fx-text-fill: white;
 }
 .button {
     -fx-effect: dropshadow(gaussian, #BD1616 , 8, 0, 4, 4);
