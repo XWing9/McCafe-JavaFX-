@@ -46,4 +46,8 @@ public class GenerateGUI{
             choosingSize.getChildren().add(button);
         }
     }
+
+    public void GenerateBill(){
+        //get info from calc class and gen GUI accordingly
+    }
 }

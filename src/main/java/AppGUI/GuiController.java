@@ -26,12 +26,15 @@ public class GuiController {
     private Label billLabel;
     @FXML
     private Label billPrice;
+    @FXML
+    private Button GiveBill;
 
     private AppManager appManager;
     private RechnungsListe rechnungsManager;
     //maybe put in appmanager
     public String currentButtonName;
 
+    Button btn;
     @FXML
     protected void initialize() {
         //delcare that this ref goes to the instanze in application
@@ -42,8 +45,8 @@ public class GuiController {
 
     //controls produkt buttons
     @FXML
-    protected void StartingOrder(javafx.event.ActionEvent actionEvent) {
-        Button btn = (Button) actionEvent.getSource();
+    protected void StartingOrder(ActionEvent actionEvent) {
+        btn = (Button) actionEvent.getSource();
         currentButtonName = btn.getText();
 
         if (Objects.equals(currentButtonName, "Back")) {
@@ -59,27 +62,47 @@ public class GuiController {
         }
 
         // Reuse this controller instance during the switch
-        appManager.SwitchScene(appManager.desiredScene, appManager.currentSzene, this, currentButtonName);
+        appManager.SwitchScene(this, currentButtonName);
+    }
+
+    @FXML
+    protected void ShowBill(ActionEvent actionEvent) {
+        btn = (Button) actionEvent.getSource();
+        String size = btn.getText();
+        System.out.println("button pressed");
+
+        appManager.currentSzene = "StartingPage";
+        appManager.desiredScene = "ShowBill";
+        //gen new Gui thing for bill
+        //change thing so i dont give redundant info to method thats already
+        //inside the class
+        appManager.SwitchScene(this, "");
     }
 
     //controls choosing size buttons
     public void addProdukttoList(ActionEvent actionEvent) {
-        Button btn = (Button) actionEvent.getSource();
+        btn = (Button) actionEvent.getSource();
         String size = btn.getText();
-        //add real amount
-        //add text current button clicked for size
-        int amount = 1;
-        rechnungsManager.addProduktToRechnung(currentButtonName,amount,size);
+
+        rechnungsManager.addProduktToRechnung(currentButtonName,size);
     }
 
     public void switchGui(String produktName){
-        if (appManager.isChoosingSize){
-            new GenerateGUI().GenerateSizeChoosingGUI(choosingSize, this, produktName);
-        } else{
-            new GenerateGUI().GenerateStartingGUI(
-                    startingContainer, orderBill,
-                    this,rechnungsManager,billLabel,
-                    billPrice);
+        switch(appManager.desiredScene){
+            case "StartingPage":
+                new GenerateGUI().GenerateStartingGUI(
+                        startingContainer, orderBill,
+                        this,rechnungsManager,billLabel,
+                        billPrice);
+                break;
+            case "ShowBill":
+                new GenerateGUI().GenerateBill();
+                break;
+            case "ChoosingSize":
+                new GenerateGUI().GenerateSizeChoosingGUI(
+                        choosingSize, this, produktName
+                );
+                break;
         }
     }
 }

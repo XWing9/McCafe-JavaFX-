@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
+//beh frage
+//dürfen schüler atmen oder nicht?
+
 public class AppManager {
 
     public Boolean isAdmin = false;
@@ -16,14 +19,14 @@ public class AppManager {
     public Boolean isDoingOrder = false;
 
     public String currentSzene = "";
-    public String desiredScene = "";
+    public String desiredScene = "StartingPage";
 
     public int minSzeneHeight = 0;
     public int minSzeneWidth = 0;
 
     private Stage primaryStage;
 
-    public void SwitchScene(String desiredScene, String currentScene, AppGUI.GuiController controller, String produktName) {
+    public void SwitchScene(AppGUI.GuiController controller, String produktName) {
 
         if (primaryStage == null) {
             System.err.println("Primary stage not set.");

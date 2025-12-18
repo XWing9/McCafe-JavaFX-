@@ -31,7 +31,7 @@ public class McCafeApplication extends Application {
 
         appManager.setPrimaryStage(stage);
         Parent initialRoot = FXMLLoader.load(
-                McCafeApplication.class.getResource("Startingpage.fxml")
+                McCafeApplication.class.getResource("StartingPage.fxml")
         );
         Scene scene = new Scene(initialRoot, 600, 650);
 
@@ -44,6 +44,6 @@ public class McCafeApplication extends Application {
 
         GuiController controller = new GuiController();
 
-        appManager.SwitchScene("StartingPage", "", controller, "");
+        appManager.SwitchScene( controller, "");
     }
 }

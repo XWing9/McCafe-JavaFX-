@@ -5,6 +5,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Region?>
+
 <HBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="AppGUI.GuiController">
 
@@ -16,8 +19,12 @@
         <Label text="Rechung:" id="billHeader"/>
         <Label fx:id="billLabel" id="billProdukts" maxWidth="180">
         </Label>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
         <Label fx:id="billPrice" id="endBetragSum">
             Endbetrag:
         </Label>
+        <Button text="Rechnung" fx:id="GiveBill" onAction="#ShowBill"> </Button>
     </VBox>
 </HBox>

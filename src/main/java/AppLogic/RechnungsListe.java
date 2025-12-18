@@ -9,11 +9,10 @@ public class RechnungsListe {
     public List<String> produktsInBill = new ArrayList<>();
     public float billPrice = 0;
 
-
     String tempNum;
     float tempBillPrice = 0;
 
-    public void addProduktToRechnung(String currentButtonName, int amount, String size){
+    public void addProduktToRechnung(String currentButtonName, String size){
         String[] data = new String[3];
         data[0] = currentButtonName;
         data[1] = size;
