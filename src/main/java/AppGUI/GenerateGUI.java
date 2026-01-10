@@ -17,6 +17,7 @@ public class GenerateGUI{
         String[] buttonsText = JSONReader.NamesJSONReader();
         String labelId = billLabel.getId();
         String billPriceId = billPriceLabel.getId();
+        String firstElement = "";
 
         for (String buttonText : buttonsText) {
             Button button = new Button(buttonText);
@@ -28,9 +29,8 @@ public class GenerateGUI{
             // Get the array at position i
             Object item = rechnungsManager.produktsInBill.get(i);
 
-
-            String firstElement = item.toString().replace("[","").replace("]","");
-            billLabel.setText(billLabel.getText() + "\n" + firstElement);
+            firstElement = item.toString().replace("[","").replace("]","");
+            billLabel.setText(billLabel.getText() + "\n" + firstElement + "€");
             billLabel.setWrapText(true);
             billPriceLabel.setText("Enbetrag: " + rechnungsManager.calculateBill() + " €");
         }

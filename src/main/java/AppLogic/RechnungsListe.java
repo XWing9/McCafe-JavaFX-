@@ -29,6 +29,9 @@ public class RechnungsListe {
             tempBillPrice = Float.parseFloat(tempNum);
             billPrice += tempBillPrice;
         }
+        //shoves the . 2 digits behind,
+        //discards all after . and shoves it 2 digits back forward
+        billPrice = Math.round(billPrice * 100.0) / 100.0f;
         return billPrice;
     }
 
