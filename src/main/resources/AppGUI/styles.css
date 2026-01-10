@@ -1,12 +1,12 @@
 /*global background color*/
 /*#999999*/
 .root {
-    -fx-background-color: #000000;
+    -fx-background-color: #050E3C;
 }
 
 #startingContainer{
     -fx-padding: 10px;
-    -fx-background-color: #000000;
+    -fx-background-color: #050E3C;
 }
 
 #billHeader{
@@ -16,7 +16,7 @@
 #orderBill {
     -fx-font-size: 20px;
     -fx-padding: 10px 10px 25px 10px;
-    -fx-background-color: #000000;
+    -fx-background-color: #050E3C;
     -fx-spacing: 10px;
 }
 #orderBill .label {

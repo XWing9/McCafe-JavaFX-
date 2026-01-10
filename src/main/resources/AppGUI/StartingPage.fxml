@@ -17,14 +17,14 @@
     <!-- Secondary container (20%) -->
     <VBox fx:id="orderBill" minWidth="300" alignment="TOP_CENTER">
         <Label text="Rechung:" id="billHeader"/>
-        <Label fx:id="billLabel" id="billProdukts" maxWidth="180">
-        </Label>
+
+        <Label fx:id="billLabel" id="billProdukts" maxWidth="180"/>
 
         <Region VBox.vgrow="ALWAYS"/>
 
         <Label fx:id="billPrice" id="endBetragSum">
             Endbetrag:
         </Label>
-        <Button text="Rechnung" fx:id="GiveBill" onAction="#ShowBill"> </Button>
+        <Button text="Rechnung" fx:id="GiveBill" onAction="#ShowBill"/>
     </VBox>
 </HBox>

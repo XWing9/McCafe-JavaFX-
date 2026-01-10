@@ -20,6 +20,7 @@ public class AppManager {
 
     public String currentSzene = "";
     public String desiredScene = "StartingPage";
+    private String resourcePath = "";
 
     public int minSzeneHeight = 0;
     public int minSzeneWidth = 0;
@@ -33,9 +34,8 @@ public class AppManager {
             return;
         }
         if (!desiredScene.endsWith(".fxml")) {
-            desiredScene += ".fxml";
+            resourcePath = "/AppGUI/" + (desiredScene + ".fxml");
         }
-        String resourcePath = "/AppGUI/" + desiredScene;
 
         Platform.runLater(() -> {
             try {
