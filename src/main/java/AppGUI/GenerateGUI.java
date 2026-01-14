@@ -30,7 +30,7 @@ public class GenerateGUI{
             Object item = rechnungsManager.produktsInBill.get(i);
 
             firstElement = item.toString().replace("[","").replace("]","");
-            billLabel.setText(billLabel.getText() + "\n" + firstElement + "€");
+            billLabel.setText(billLabel.getText()  + firstElement + "€" + "\n");
             billLabel.setWrapText(true);
             billPriceLabel.setText("Enbetrag: " + rechnungsManager.calculateBill() + " €");
         }

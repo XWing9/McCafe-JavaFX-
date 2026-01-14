@@ -79,6 +79,29 @@ public class GuiController {
         appManager.SwitchScene(this, "");
     }
 
+    @FXML
+    protected void newBill(ActionEvent actionEvent) {
+        appManager.currentSzene = "ShowBill";
+        appManager.desiredScene = "StartingPage";
+
+        appManager.SwitchScene(this, "");
+    }
+
+    @FXML
+    protected void deleteItems(){
+        if (appManager.isAdmin == false){
+            System.out.println("you are no admin");
+        } else {
+            System.out.println("you are admin");
+        }
+    }
+
+    @FXML
+    protected void setToAdmin(){
+        appManager.isAdmin = true;
+        System.out.println(appManager.isAdmin);
+    }
+
     //controls choosing size buttons
     public void addProdukttoList(ActionEvent actionEvent) {
         btn = (Button) actionEvent.getSource();

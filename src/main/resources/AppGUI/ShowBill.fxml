@@ -6,5 +6,5 @@
 <HBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="AppGUI.GuiController">
 
-    <Label text="wewwe"></Label>
+    <Button text="Neue Bestellung" fx:id="newBill" onAction="#newBill"/>
 </HBox>

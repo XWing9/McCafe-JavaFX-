@@ -45,14 +45,14 @@ public class AppManager {
                 }
 
                 FXMLLoader loader = new FXMLLoader(fxmlUrl);
-                // Keep fx:controller in FXML, but force using the existing controller instance
                 loader.setControllerFactory(type -> controller);
 
-                Parent newRoot = loader.load(); // @FXML fields injected into 'controller' here
+                Parent newRoot = loader.load();
 
                 Scene scene = primaryStage.getScene();
                 if (scene == null) {
-                    Scene newScene = new Scene(newRoot, 1000, 620);
+                    //Größe des Fensters festlegen
+                    Scene newScene = new Scene(newRoot, 1500, 900);
                     String css = getClass().getResource("/AppGUI/styles.css").toExternalForm();
                     newScene.getStylesheets().add(css);
                     primaryStage.setScene(newScene);
@@ -61,7 +61,6 @@ public class AppManager {
                 }
                 primaryStage.show();
 
-                // Now it's safe: choosingSize/container are injected
                 controller.switchGui(produktName);
 
             } catch (IOException e) {

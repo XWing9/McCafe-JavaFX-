@@ -8,14 +8,28 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.Region?>
 
+<?import javafx.scene.control.TextField?>
 <HBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="AppGUI.GuiController">
 
-    <!-- Main container (80%) -->
+    <!-- First container (?%) -->
     <TilePane fx:id="startingContainer" hgap="10" vgap="10" HBox.hgrow="ALWAYS" />
 
-    <!-- Secondary container (20%) -->
-    <VBox fx:id="orderBill" minWidth="300" alignment="TOP_CENTER">
+    <!-- Second container (?%) -->
+    <VBox fx:id="billChanging" minWidth="200" alignment="TOP_CENTER">
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Amount of stamps:"/>
+            <TextField fx:id="numberField" promptText="Max 10"/>
+        </VBox>
+
+        <!-- Group 2: Buttons -->
+        <VBox spacing="5" alignment="CENTER" fx:id="adminButtons">
+            <Button text="Delete Items" onAction="#deleteItems"/>
+            <Button text="set to Admin" onAction="#setToAdmin"/>
+        </VBox>
+    </VBox>
+    <!-- Third container (?%) -->
+    <VBox fx:id="orderBill" minWidth="400" alignment="TOP_CENTER">
         <Label text="Rechung:" id="billHeader"/>
 
         <Label fx:id="billLabel" id="billProdukts" maxWidth="180"/>
